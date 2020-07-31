@@ -9,7 +9,51 @@ type: page
 * content
 {:toc}
 
-## Personal resume
+## Personal experience
+
+<div>
+<table border="0">
+  <tr>
+    <td width="75%">
+      <h1>Ziyu Zhong</h1>
+      <p><b>Undergarduate</b></p>
+      <p><b>Math department of Nanjing university</b></p>
+      <p><b>adress：Nanjing university，Nanjing，postcode: 21000</b></p>
+    </td>
+    <td width="25%">
+      <img src="/zhengjianzhao.jpg" width="100%">
+    </td>
+  </tr>
+</table>
+</div>
+
+
+---
+
+indroduction,indroduction,indroduction,indroduction,indroduction...
+
+---
+
+### Latest news
+1. xxx
+
+### Academic experience
+
+#### Nanjing university, China（2017.9~）
+- Undergarduate
+
+#### University of Wisconsin-Madison, U.S. (2020.1~2020.7)
+- visiting student
+
+### Research experience
+- xxx
+- xxx
+
+### Honors&Rewards
+- xxx
+- xxx
+- xxx
+
 
 
 
@@ -17,7 +61,8 @@ type: page
 
 * GitHub：[zhongziyu](https://github.com/zhongziyu)
 * email：83608368@qq.com
-* [Weibo](http://weibo.com/barbaralalia)
+* weixin : Barbaralalia
+* QQ : 83608368
 * [知乎](https://www.zhihu.com/people/ddf6d5d5dea2defa6d954903ff0bcb91)
 
 
