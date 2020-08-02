@@ -1,0 +1,14 @@
+I"f<ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The problem comes from a stochastic PDE:</p>
+
+\[\dfrac{du}{dt}=\Delta u-Eu^2+\xi\]
+
+<p>Where   $u$   is a function of t and x, and x \in [0,1],   $\xi$   is space-time white noise.</p>
+
+<p>aaa</p>
+:ET

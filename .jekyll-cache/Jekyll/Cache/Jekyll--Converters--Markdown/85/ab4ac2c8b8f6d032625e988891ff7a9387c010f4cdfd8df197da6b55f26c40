@@ -1,0 +1,34 @@
+I"U<ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#problem" id="markdown-toc-problem">Problem</a></li>
+  <li><a href="#try-to-solve-it" id="markdown-toc-try-to-solve-it">Try to solve it</a></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The problem comes from a stochastic PDE:</p>
+
+\[\dfrac{du}{dt}=\Delta u-Eu^2+\xi\]
+
+<p>Where   $u$   is a function of $t$ and $x$, $x\in$ [0,1], and   $\xi$   is space-time white noise.</p>
+
+<p>We want to understand invariant measure of the stochastic PDE.</p>
+
+<p>However, since it’s complicated to deal with SPDE, we can try to make a finite difference approximation. Let’s take n points from [0,1].</p>
+
+<p>Then it becomes an SDE system:</p>
+
+\[dX_i=(X_{i-1}+X_{i+1}-2X_{i}-EX_i^2\cdot X_i)dt+dB_i\]
+
+<p>where i=1,…,n. We take a periodic boundary condition here, namely $X_0=X_n$ and $X_{n+1}=X_1$.</p>
+
+<p>We want to figure out the invariant measure of this SDE system.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>….</p>
+
+<h2 id="try-to-solve-it">Try to solve it</h2>
+
+<p>….</p>
+:ET
