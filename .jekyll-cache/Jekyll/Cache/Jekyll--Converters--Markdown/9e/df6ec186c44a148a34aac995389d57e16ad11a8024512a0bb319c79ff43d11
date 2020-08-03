@@ -1,0 +1,65 @@
+I"�
+<ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#preliminary" id="markdown-toc-preliminary">Preliminary</a>    <ul>
+      <li><a href="#fokkerplanck-equation" id="markdown-toc-fokkerplanck-equation">Fokker–Planck equation</a></li>
+    </ul>
+  </li>
+  <li><a href="#try-to-solve-it" id="markdown-toc-try-to-solve-it">Try to solve it</a></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The problem comes from a stochastic PDE:</p>
+
+\[\dfrac{du}{dt}=\Delta u-Eu^2+\xi\]
+
+<p>Where   $u$   is a function of $t$ and $x$, $x\in$ [0,1], and   $\xi$   is space-time white noise.</p>
+
+<p>We want to understand invariant measure of the stochastic PDE.</p>
+
+<p>However, since it’s complicated to deal with SPDE, we can try to make a finite difference approximation. Let’s take n points from [0,1].</p>
+
+<p>Then it becomes an SDE system:</p>
+
+\[dX_t^i=(X_t^{i-1}+X_t^{i+1}-2X_t^{i}-E{X_t^i}^2\cdot X_t^i)dt+dB_t^i\]
+
+<p>where $i=1,…,n$. We take a periodic boundary condition here, namely $X_t^0=X_t^n$ and $X_t^{n+1}=X_t^1$.</p>
+
+<p>We want to figure out the invariant measure of this SDE system.</p>
+
+<h2 id="preliminary">Preliminary</h2>
+
+<h3 id="fokkerplanck-equation">Fokker–Planck equation</h3>
+
+<p>The Fokker–Planck equation is a partial differential equation that describes the time evolution of the probability density function of the random variebles. For a general case, if</p>
+
+\[dX_t=\mu (X_t, t)dt+\sigma (X_t, t) dB_t\]
+
+<p>where $X_t$ and $\mu(X_t,t)$ are $n$-dimensional random vectors, $\sigma (X_t,t)$ is an $n\times m$ matrix and $B_t$ is an $m$-dimensional standard Wiener process, the probability density $p(x,t)$ for $X_t$ satisfies the Fokker–Planck-equation:</p>
+
+\[\frac{\partial p(\mathbf{x}, t)}{\partial t}=-\sum\limits_{i=1}^{N} \frac{\partial}{\partial x_{i}}\left[\mu_{i}(\mathbf{x}, t) p(\mathbf{x}, t)\right]+\sum_{i=1}^{N} \sum_{j=1}^{N} \frac{\partial^{2}}{\partial x_{i} \partial x_{j}}\left[D_{i j}(\mathbf{x}, t) p(\mathbf{x}, t)\right]\]
+
+<p>with drift vector $\mu = (\mu_1,…,\mu_N)$ and diffusion tensor $D = \frac{1}{2}\sigma \sigma^T$, i.e.</p>
+
+\[D_{i j}(\mathbf{x}, t)=\frac{1}{2} \sum_{k=1}^{M} \sigma_{i k}(\mathbf{x}, t) \sigma_{j k}(\mathbf{x}, t)\]
+
+<p>For our problem, which is</p>
+
+<p>$\begin{pmatrix}
+X_t^1 \\ 
+X_t^2 \\ 
+\vdots \\ 
+X_t^n \\ 
+\end{pmatrix}$ =
+$\begin{pmatrix}
+-2-E{X_t^1}^2 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 &amp; 1 \<br />
+1 &amp; -2-E{X_t^2}^2 &amp; 1 &amp; \cdots &amp; 0 &amp; 0 \<br />
+0 &amp; 1 &amp; -2-E{X_t^3}^2 &amp; 1 &amp; \cdots &amp; 0 \<br />
+1 &amp; 0 &amp; \cdots &amp; 0 &amp; 1 &amp; -2-E{X_t^n}^2 \<br />
+\end{pmatrix}$</p>
+
+<h2 id="try-to-solve-it">Try to solve it</h2>
+
+<p>….</p>
+:ET
