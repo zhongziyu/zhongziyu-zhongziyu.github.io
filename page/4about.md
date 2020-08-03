@@ -14,14 +14,14 @@ type: page
 <div>
 <table border="0">
   <tr>
-    <td width="75%">
+    <td width="65%">
       <h1>Ziyu Zhong</h1>
       <p><b>Undergarduate</b></p>
       <p><b>Math department of Nanjing university</b></p>
-      <p><b>adress：Nanjing university，Nanjing，postcode: 21000</b></p>
+      <p><b>Address：Nanjing university, Nanjing, China, 21000</b></p>
     </td>
-    <td width="25%">
-      <img src="/zhengjianzhao.jpg" width="100%">
+    <td width="35%">
+      <img src="/photo_about.jpg" width="100%">
     </td>
   </tr>
 </table>
@@ -30,7 +30,7 @@ type: page
 
 ---
 
-indroduction,indroduction,indroduction,indroduction,indroduction...
+*&emsp;Hi, this is Ziyu Zhong. I'm studying math at Nanjing university now. I love those cool things like math, machine learning, etc. Music and photograpy are also my favors. I'd love to share something cool in this website to capture the wonderful time of mine.*
 
 ---
 
