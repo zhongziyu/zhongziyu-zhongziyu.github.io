@@ -7,7 +7,7 @@
 
 # Site settings
 title: Ziyu
-brief-intro: Undergrauduate in Nanjing University
+brief-intro: Undergrauduate at Nanjing University
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://zhongziyu.github.io" # the base hostname & protocol for your site
 
@@ -23,7 +23,7 @@ zhihu_username: 中二狗
 linkedIn_username: 
 dribbble_username:
 
-description_footer: Inctroduce myself and log my experience   
+description_footer: Good good study, day day up !
 
 # comments
 # two ways to comment, only choose one, and use your own short name

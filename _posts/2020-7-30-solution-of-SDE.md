@@ -4,7 +4,6 @@ title:  "Research on the solution of a type of SDE"
 categories: math research
 tags: math SDE Fokker–Planck-equation proof
 author: Ziyu Zhong
-mathjax: true
 ---
 
 * content
@@ -51,12 +50,12 @@ For our problem,
 
 $\mu =$
 $\begin{pmatrix}
--2-E{X_t^1}^2 & 1 & 0 & \cdots & 0 & 1 \\\ 
-1 & -2-E{X_t^2}^2 & 1 & \cdots & 0 & 0 \\\ 
-0 & 1 & -2-E{X_t^3}^2 & 1 & \cdots & 0 \\\ 
+-2-E{X_t^{(1)}}^2 & 1 & 0 & \cdots & 0 & 1 \\\ 
+1 & -2-E{X_t^{(2)}}^2 & 1 & \cdots & 0 & 0 \\\ 
+0 & 1 & -2-E{X_t^{(3)}}^2 & 1 & \cdots & 0 \\\ 
 \vdots & \vdots & \ddots & \ddots & \ddots &\vdots \\\ 
-0 & \cdots & 0 & 1 & -2-E{X_t^{n-1}}^2 & 1 \\\ 
-1 & 0 & \cdots & 0 & 1 & -2-E{X_t^n}^2 \\\ 
+0 & \cdots & 0 & 1 & -2-E{X_t^{(n-1)}}^2 & 1 \\\ 
+1 & 0 & \cdots & 0 & 1 & -2-E{X_t^{(n)}}^2 \\\ 
 \end{pmatrix}$
 
 &nbsp;
@@ -65,10 +64,100 @@ $\sigma = I$ &nbsp; (identity matrix)
 
 &nbsp;
 
-If our $\mu$ is a constant, the SDE would be an Ornstein–Uhlenbeck process, whose invariant measure is very clear for us. (one can see the derivation from <https://doi.org/10.1186/s13662-019-2214-1>)
+If our $\mu$ is a constant, the SDE would be an Ornstein–Uhlenbeck process, whose invariant measure is unique and very clear for us. (one can see the derivation from <https://doi.org/10.1186/s13662-019-2214-1>)
 
-However, our $\mu$ is relevant with $t$, since $E{X_t^i}^2$ is a function of $t$. Thus it's tricky to deal with it.
+However, our $\mu$ is relevant with $t$, since $E{X_t^{(i)}}^2$ is a function of $t$. Thus it's tricky to deal with it.
 
 ## Try to solve it
 
-....
+### 1
+
+We assume $X_t$ is stationary, then $E{X_t^{(i)}}^2$ is constant. Let the constant be $u_i$. Then we can regard $\mu$ as a constant. So the SDE becomes an Ornstein–Uhlenbeck process. We can obtain that its invariant measure should be a gaussian distribution $X_t\sim N(0,-\frac{1}{2}\mu^{-1}) $. For completeness, I give a proof as follows.
+
+For our SDE with the initial value $\mathbf{X_0}=\mathbf{x_0}$, the Fokker-Planck equation is:
+
+$\dfrac{\partial p}{\partial t} = -\sum\limits_{i=1}^{n}\dfrac{\partial}{\partial x_i}[(x_{i-1}+x_{i+1}-(2+u_i)x_i)p]+\dfrac{1}{2}\Delta p \qquad (x_0:=x_n,x_{n+1}:=x_1)$
+
+$p(\mathbf{x},0) = \delta (\mathbf{x}-\mathbf{x^0}) \qquad \quad$ ( initial condition )
+
+We take the $n$-dimensional Fourier transform of the equations, we get:
+
+$\dfrac{\partial \hat p}{\partial t} = \sum\limits_{i=1}^{n}\lambda_i[\dfrac{\partial \hat p}{\partial \lambda_{i-1}}+\dfrac{\partial \hat p}{\partial \lambda_{i+1}}-(2+u_i)\dfrac{\partial \hat p}{\partial \lambda_{i}}]-\dfrac{1}{2}\lambda^T \lambda\ \hat p $
+
+$\hat p(\lambda ,0) = exp(-i\lambda^T\mathbf{x^0})$
+
+where $\hat p(\lambda ,t) $ is the $n$-dimensional Fourier transform of $p(\mathbf{x},t)$.
+
+&nbsp;
+
+Note that the equation is a first-order partial differential equation, so we will apply the method of characteristics.
+
+(For the convienience of caculation, we let $A:=-\mu$)
+
+Consider the system:
+
+$\dfrac{d\lambda}{dt} = A\lambda$
+
+with initial condition $\lambda(0) = C$. The solution of this system is:
+
+$\lambda = e^{tA}\cdot C$
+
+Then,
+
+$\dfrac{d\hat p}{dt} = \sum\limits_{i=1}^{n}\dfrac{\partial \hat p}{\partial \lambda_i}\cdot \dfrac{d \lambda_i}{dt} + \dfrac{\partial \hat p}{\partial t}$
+
+$ \quad = -\sum\limits_{i=1}^{n}\lambda_i[\dfrac{\partial \hat p}{\partial \lambda_{i-1}}+\dfrac{\partial \hat p}{\partial \lambda_{i+1}}-(2+u_i)\dfrac{\partial \hat p}{\partial \lambda_{i}}] + \dfrac{\partial \hat p}{\partial t}$
+
+$ \quad =-\dfrac{1}{2}\lambda^T \lambda\ \hat p$
+
+$ \quad =-\dfrac{1}{2}C^Te^{tA^T}e^{tA}C\hat p$
+
+$ \quad =-\dfrac{1}{2}C^Te^{2tA}C\hat p \qquad$ ($A$ is symmetric)
+
+$ \hat p(0) = \hat p(\lambda (0) ,0) = exp(-iC^T\mathbf{x^0})$
+
+Thus,
+
+$\hat p = exp(-iC^T\mathbf{x^0} - \dfrac{1}{2}\displaystyle{ \int_0^t C^Te^{2sA}C ds }  )$
+
+$\quad = exp(-iC^T\mathbf{x^0} - \dfrac{1}{2}C^T(2A)^{-1}[e^{2tA}-I]C)$
+
+$ \overset{C=e^{-tA}\cdot \lambda}{=} exp(-i\lambda^Te^{-tA}\mathbf{x^0} - \dfrac{1}{4}\lambda^Te^{-tA}A^{-1}[e^{2tA}-I]e^{-tA}\lambda)$
+
+$\quad = exp(-i\lambda^Te^{-tA}\mathbf{x^0} - \dfrac{1}{4}\lambda^TA^{-1}[I-e^{-2tA}]\lambda)$
+
+Since the characteristic function is the Fourier transform with opposite sign in the complex exponential,
+
+$X_t\sim N(e^{-tA}\mathbf{x^0}, \dfrac{1}{2}A^{-1}[I-e^{-2tA}])$
+
+And because $A$ is a positive definite matrix when $u_i>0$ (we won't prove it here, since it's tedious), when $t\to \infty$, $e^{-tA}\to \mathbf{0}$, $X_t \sim N(\mathbf{0}, \dfrac{1}{2}A^{-1})$ .
+
+### 2
+
+We now know that when $X_t$ is stationary, its distribution would be $N(\mathbf{0}, \dfrac{1}{2}A^{-1})$, 
+
+$A =$
+$\begin{pmatrix}
+2+u_1 & -1 & 0 & \cdots & 0 & -1 \\\ 
+-1 & 2+u_2 & -1 & \cdots & 0 & 0 \\\ 
+0 & -1 & 2+u_3 & -1 & \cdots & 0 \\\ 
+\vdots & \vdots & \ddots & \ddots & \ddots &\vdots \\\ 
+0 & \cdots & 0 & -1 & 2+u_{n-1} & -1 \\\ 
+-1 & 0 & \cdots & 0 & -1 & 2+u_n \\\ 
+\end{pmatrix}$
+
+$u_i = E{X_t^{(i)}}^2$
+
+However, we need to verify $u_i$'s existence and uniqueness, which is equivalent to verify the existence and uniqueness of the solutions to the equation system:
+
+$$\begin{cases}
+u_1=\dfrac{1}{2}A^{-1}_{1,1}\\[2ex]
+u_2=\dfrac{1}{2}A^{-1}_{2,2} \\[2ex]
+\vdots \\[2ex]
+u_n=\dfrac{1}{2}A^{-1}_{n,n} 
+\end{cases}$$
+
+($ A^{-1}_{i,j} $ means the $(i,j)$ entry of the matrix $A^{-1}$)
+
+(Note that $\dfrac{1}{2}A^{-1}_{i,i}$ is the variance of the stationary $X_t^{(i)}$)
+
