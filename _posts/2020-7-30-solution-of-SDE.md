@@ -194,9 +194,10 @@ Since our $u>0$ , then $b>1$ , $a=\dfrac{1}{b}<1$ , $D_n>0$ .
 
 &nbsp;
 
-We see when $u_1=u_2=\dots =u_n=u$ , 
+We see when $u_1=u_2=\dots =u_n=u$ ,
 
-$A^{-1}_{i,i}=\dfrac{D_{n-1}}{C_n}$ , since $A^{-1}=\dfrac{A^*}{|A|}$ .
+$A_{i,i}^{-1}=\dfrac{D_{n-1}}{C_n}$ ,
+since $A^{-1}=\dfrac{A^*}{\mid A\mid}$ .
 
 So the equations become: $u=\dfrac{D_{n-1}}{2C_n}$ .
 
@@ -206,9 +207,9 @@ $(2u^2+4u-1)D_{n-1}-4u(D_{n-2}+1)=0$ ,
 
 Let $f(u)$ be the left side of the equation,
 
-$f(u^{*})<0$ , when $u^{*}$ is positive root of $2u^2+4u-1$ , which is $\dfrac{-4+\sqrt{24}}{4}$ .
+$f(u^{1})<0$ , when $u^{1}$ is positive root of $2u^2+4u-1$ , which is $\dfrac{-4+\sqrt{24}}{4}$ .
 
-$f(u^{**})>0$ , when $u^{**}$ is large enough since $D_n$ is $O(u^{n-1})$ .
+$f(u^{2})>0$ , when $u^{2}$ is large enough since $D_n$ is $O(u^{n-1})$ .
 
 Thus $f(u)$ has at least one root.
 

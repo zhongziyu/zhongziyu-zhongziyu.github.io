@@ -5,8 +5,8 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 12 Aug 2020 13:29:30 +0800</pubDate>
-    <lastBuildDate>Wed, 12 Aug 2020 13:29:30 +0800</lastBuildDate>
+    <pubDate>Sat, 22 Aug 2020 23:04:31 +0800</pubDate>
+    <lastBuildDate>Sat, 22 Aug 2020 23:04:31 +0800</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -19,7 +19,11 @@
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#try-to-solve-it&quot; id=&quot;markdown-toc-try-to-solve-it&quot;&gt;Try to solve it&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#1&quot; id=&quot;markdown-toc-1&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#2&quot; id=&quot;markdown-toc-2&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2&quot; id=&quot;markdown-toc-2&quot;&gt;2&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#existence&quot; id=&quot;markdown-toc-existence&quot;&gt;Existence&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#uniqueness&quot; id=&quot;markdown-toc-uniqueness&quot;&gt;Uniqueness&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -174,6 +178,62 @@ u_n=\dfrac{1}{2}A^{-1}_{n,n}
 ($ A^{-1}_{i,j} $ means the $(i,j)$ entry of the matrix $A^{-1}$)
 
 (Note that $\dfrac{1}{2}A^{-1}_{i,i}$ is the variance of the stationary $X_t^{(i)}$)
+
+&lt;h4 id=&quot;existence&quot;&gt;Existence&lt;/h4&gt;
+
+Let $u:=u_1=u_2=\dots =u_n$, we are going to find a solution of the equations.
+
+$C_n:=$
+$\begin{vmatrix}
+2+u &amp;amp; -1 &amp;amp; 0 &amp;amp; \cdots &amp;amp; 0 &amp;amp; -1 \\ 
+-1 &amp;amp; 2+u &amp;amp; -1 &amp;amp; \cdots &amp;amp; 0 &amp;amp; 0 \\ 
+0 &amp;amp; -1 &amp;amp; 2+u &amp;amp; -1 &amp;amp; \cdots &amp;amp; 0 \\ 
+\vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp; \ddots &amp;amp; \ddots &amp;amp;\vdots \\ 
+0 &amp;amp; \cdots &amp;amp; 0 &amp;amp; -1 &amp;amp; 2+u &amp;amp; -1 \\ 
+-1 &amp;amp; 0 &amp;amp; \cdots &amp;amp; 0 &amp;amp; -1 &amp;amp; 2+u \\ 
+\end{vmatrix}_n$
+
+$D_n:=$
+$\begin{vmatrix}
+2+u &amp;amp; -1 &amp;amp; 0 &amp;amp; \cdots &amp;amp;  0 \\ 
+-1 &amp;amp; 2+u &amp;amp; -1 &amp;amp; \cdots &amp;amp;  0 \\ 
+\vdots &amp;amp; \ddots &amp;amp; \ddots &amp;amp; \ddots  &amp;amp;\vdots \\ 
+0 &amp;amp; \cdots &amp;amp; -1 &amp;amp; 2+u &amp;amp; -1 \\ 
+0 &amp;amp; \cdots &amp;amp; 0 &amp;amp; -1 &amp;amp; 2+u \\ 
+\end{vmatrix}_n$
+
+It’s easy to find that $C_n=(2+u)D_{n-1}-2(D_{n-2}+1)$ by expanding $C_n$.
+
+And we can caculate $D_n$ by solving a difference equation, the result is:
+
+$D_n=\dfrac{b^n-a^n}{b-a}$ , $\quad a=\dfrac{2+u-\sqrt{u^2+4u}}{2}$ , $\quad b=\dfrac{2+u+\sqrt{u^2+4u}}{2}$
+
+Since our $u&amp;gt;0$ , then $b&amp;gt;1$ , $a=\dfrac{1}{b}&amp;lt;1$ , $D_n&amp;gt;0$ .
+
+ 
+
+We see when $u_1=u_2=\dots =u_n=u$ ,
+
+$A_{i,i}^{-1}=\dfrac{D_{n-1}}{C_n}$ ,
+since $A^{-1}=\dfrac{A^*}{\mid A\mid}$ .
+
+So the equations become: $u=\dfrac{D_{n-1}}{2C_n}$ .
+
+Both sides multiple $C_n$ and subtitute it by $D_{n-1}$ and $D_{n-2}$, it becomes:
+
+$(2u^2+4u-1)D_{n-1}-4u(D_{n-2}+1)=0$ ,
+
+Let $f(u)$ be the left side of the equation,
+
+$f(u^{1})&amp;lt;0$ , when $u^{1}$ is positive root of $2u^2+4u-1$ , which is $\dfrac{-4+\sqrt{24}}{4}$ .
+
+$f(u^{2})&amp;gt;0$ , when $u^{2}$ is large enough since $D_n$ is $O(u^{n-1})$ .
+
+Thus $f(u)$ has at least one root.
+
+&lt;h4 id=&quot;uniqueness&quot;&gt;Uniqueness&lt;/h4&gt;
+
+We haven’t solved the uniqueness of the solution, but I can show you some ideas that may help us.
 
 </description>
         <pubDate>Thu, 30 Jul 2020 00:00:00 +0800</pubDate>

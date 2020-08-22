@@ -1,4 +1,4 @@
-I"�<ul id="markdown-toc">
+I"F&<ul id="markdown-toc">
   <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
   <li><a href="#preliminary" id="markdown-toc-preliminary">Preliminary</a>    <ul>
       <li><a href="#fokkerplanck-equation" id="markdown-toc-fokkerplanck-equation">Fokker–Planck equation</a></li>
@@ -6,7 +6,11 @@
   </li>
   <li><a href="#try-to-solve-it" id="markdown-toc-try-to-solve-it">Try to solve it</a>    <ul>
       <li><a href="#1" id="markdown-toc-1">1</a></li>
-      <li><a href="#2" id="markdown-toc-2">2</a></li>
+      <li><a href="#2" id="markdown-toc-2">2</a>        <ul>
+          <li><a href="#existence" id="markdown-toc-existence">Existence</a></li>
+          <li><a href="#uniqueness" id="markdown-toc-uniqueness">Uniqueness</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>
@@ -151,15 +155,71 @@ $\begin{pmatrix}
 
 <p>However, we need to verify $u_i$’s existence and uniqueness, which is equivalent to verify the existence and uniqueness of the solutions to the equation system:</p>
 
-<p>\begin{cases}
-u_1=\dfrac{1}{2}A^{-1}<em>{1,1}\[2ex] 
-u_2=\dfrac{1}{2}A^{-1}</em>{2,2} \[2ex] 
-\vdots \[2ex] 
+\[\begin{cases}
+u_1=\dfrac{1}{2}A^{-1}_{1,1}\\[2ex]
+u_2=\dfrac{1}{2}A^{-1}_{2,2} \\[2ex]
+\vdots \\[2ex]
 u_n=\dfrac{1}{2}A^{-1}_{n,n} 
-\end{cases}</p>
+\end{cases}\]
 
 <p>($ A^{-1}_{i,j} $ means the $(i,j)$ entry of the matrix $A^{-1}$)</p>
 
 <p>(Note that $\dfrac{1}{2}A^{-1}_{i,i}$ is the variance of the stationary $X_t^{(i)}$)</p>
+
+<h4 id="existence">Existence</h4>
+
+<p>Let $u:=u_1=u_2=\dots =u_n$, we are going to find a solution of the equations.</p>
+
+<p>$C_n:=$
+$\begin{vmatrix}
+2+u &amp; -1 &amp; 0 &amp; \cdots &amp; 0 &amp; -1 \\ 
+-1 &amp; 2+u &amp; -1 &amp; \cdots &amp; 0 &amp; 0 \\ 
+0 &amp; -1 &amp; 2+u &amp; -1 &amp; \cdots &amp; 0 \\ 
+\vdots &amp; \vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp;\vdots \\ 
+0 &amp; \cdots &amp; 0 &amp; -1 &amp; 2+u &amp; -1 \\ 
+-1 &amp; 0 &amp; \cdots &amp; 0 &amp; -1 &amp; 2+u \\ 
+\end{vmatrix}_n$</p>
+
+<p>$D_n:=$
+$\begin{vmatrix}
+2+u &amp; -1 &amp; 0 &amp; \cdots &amp;  0 \\ 
+-1 &amp; 2+u &amp; -1 &amp; \cdots &amp;  0 \\ 
+\vdots &amp; \ddots &amp; \ddots &amp; \ddots  &amp;\vdots \\ 
+0 &amp; \cdots &amp; -1 &amp; 2+u &amp; -1 \\ 
+0 &amp; \cdots &amp; 0 &amp; -1 &amp; 2+u \\ 
+\end{vmatrix}_n$</p>
+
+<p>It’s easy to find that $C_n=(2+u)D_{n-1}-2(D_{n-2}+1)$ by expanding $C_n$.</p>
+
+<p>And we can caculate $D_n$ by solving a difference equation, the result is:</p>
+
+<p>$D_n=\dfrac{b^n-a^n}{b-a}$ , $\quad a=\dfrac{2+u-\sqrt{u^2+4u}}{2}$ , $\quad b=\dfrac{2+u+\sqrt{u^2+4u}}{2}$</p>
+
+<p>Since our $u&gt;0$ , then $b&gt;1$ , $a=\dfrac{1}{b}&lt;1$ , $D_n&gt;0$ .</p>
+
+<p> </p>
+
+<p>We see when $u_1=u_2=\dots =u_n=u$ ,</p>
+
+<p>$A^{-1}=\dfrac{D_{n-1}}{C_n}$ ,
+since $A^{-1}=\dfrac{A^*}{\mid A\mid}$ .</p>
+
+<p>So the equations become: $u=\dfrac{D_{n-1}}{2C_n}$ .</p>
+
+<p>Both sides multiple $C_n$ and subtitute it by $D_{n-1}$ and $D_{n-2}$, it becomes:</p>
+
+<p>$(2u^2+4u-1)D_{n-1}-4u(D_{n-2}+1)=0$ ,</p>
+
+<p>Let $f(u)$ be the left side of the equation,</p>
+
+<p>$f(u^{1})&lt;0$ , when $u^{1}$ is positive root of $2u^2+4u-1$ , which is $\dfrac{-4+\sqrt{24}}{4}$ .</p>
+
+<p>$f(u^{2})&gt;0$ , when $u^{2}$ is large enough since $D_n$ is $O(u^{n-1})$ .</p>
+
+<p>Thus $f(u)$ has at least one root.</p>
+
+<h4 id="uniqueness">Uniqueness</h4>
+
+<p>We haven’t solved the uniqueness of the solution, but I can show you some ideas that may help us.</p>
 
 :ET
