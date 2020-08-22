@@ -161,3 +161,60 @@ u_n=\dfrac{1}{2}A^{-1}_{n,n}
 
 (Note that $\dfrac{1}{2}A^{-1}_{i,i}$ is the variance of the stationary $X_t^{(i)}$)
 
+#### Existence
+
+Let $u:=u_1=u_2=\dots =u_n$, we are going to find a solution of the equations.
+
+$C_n:=$
+$\begin{vmatrix}
+2+u & -1 & 0 & \cdots & 0 & -1 \\\ 
+-1 & 2+u & -1 & \cdots & 0 & 0 \\\ 
+0 & -1 & 2+u & -1 & \cdots & 0 \\\ 
+\vdots & \vdots & \ddots & \ddots & \ddots &\vdots \\\ 
+0 & \cdots & 0 & -1 & 2+u & -1 \\\ 
+-1 & 0 & \cdots & 0 & -1 & 2+u \\\ 
+\end{vmatrix}_n$
+
+$D_n:=$
+$\begin{vmatrix}
+2+u & -1 & 0 & \cdots &  0 \\\ 
+-1 & 2+u & -1 & \cdots &  0 \\\ 
+\vdots & \ddots & \ddots & \ddots  &\vdots \\\ 
+0 & \cdots & -1 & 2+u & -1 \\\ 
+0 & \cdots & 0 & -1 & 2+u \\\ 
+\end{vmatrix}_n$
+
+It's easy to find that $C_n=(2+u)D_{n-1}-2(D_{n-2}+1)$ by expanding $C_n$.
+
+And we can caculate $D_n$ by solving a difference equation, the result is:
+
+$D_n=\dfrac{b^n-a^n}{b-a}$ , $\quad a=\dfrac{2+u-\sqrt{u^2+4u}}{2}$ , $\quad b=\dfrac{2+u+\sqrt{u^2+4u}}{2}$
+
+Since our $u>0$ , then $b>1$ , $a=\dfrac{1}{b}<1$ , $D_n>0$ .
+
+&nbsp;
+
+We see when $u_1=u_2=\dots =u_n=u$ , 
+
+$A^{-1}_{i,i}=\dfrac{D_{n-1}}{C_n}$ , since $A^{-1}=\dfrac{A^*}{|A|}$ .
+
+So the equations become: $u=\dfrac{D_{n-1}}{2C_n}$ .
+
+Both sides multiple $C_n$ and subtitute it by $D_{n-1}$ and $D_{n-2}$, it becomes:
+
+$(2u^2+4u-1)D_{n-1}-4u(D_{n-2}+1)=0$ ,
+
+Let $f(u)$ be the left side of the equation,
+
+$f(u^{*})<0$ , when $u^{*}$ is positive root of $2u^2+4u-1$ , which is $\dfrac{-4+\sqrt{24}}{4}$ .
+
+$f(u^{**})>0$ , when $u^{**}$ is large enough since $D_n$ is $O(u^{n-1})$ .
+
+Thus $f(u)$ has at least one root.
+
+
+#### Uniqueness
+
+We haven't solved the uniqueness of the solution, but I can show you some ideas that may help us.
+
+
