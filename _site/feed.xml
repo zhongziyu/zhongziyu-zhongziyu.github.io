@@ -5,30 +5,33 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Aug 2020 23:04:31 +0800</pubDate>
-    <lastBuildDate>Sat, 22 Aug 2020 23:04:31 +0800</lastBuildDate>
+    <pubDate>Sat, 22 Aug 2020 23:34:02 +0800</pubDate>
+    <lastBuildDate>Sat, 22 Aug 2020 23:34:02 +0800</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
         <title>Research on the solution of a type of SDE</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#introduction&quot; id=&quot;markdown-toc-introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#preliminary&quot; id=&quot;markdown-toc-preliminary&quot;&gt;Preliminary&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#fokkerplanck-equation&quot; id=&quot;markdown-toc-fokkerplanck-equation&quot;&gt;Fokker–Planck equation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#1-introduction&quot; id=&quot;markdown-toc-1-introduction&quot;&gt;1 Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#2-preliminary&quot; id=&quot;markdown-toc-2-preliminary&quot;&gt;2 Preliminary&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#21-fokkerplanck-equation&quot; id=&quot;markdown-toc-21-fokkerplanck-equation&quot;&gt;2.1 Fokker–Planck equation&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#try-to-solve-it&quot; id=&quot;markdown-toc-try-to-solve-it&quot;&gt;Try to solve it&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#1&quot; id=&quot;markdown-toc-1&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#2&quot; id=&quot;markdown-toc-2&quot;&gt;2&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#existence&quot; id=&quot;markdown-toc-existence&quot;&gt;Existence&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#uniqueness&quot; id=&quot;markdown-toc-uniqueness&quot;&gt;Uniqueness&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#3-try-to-solve-it&quot; id=&quot;markdown-toc-3-try-to-solve-it&quot;&gt;3 Try to solve it&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#31&quot; id=&quot;markdown-toc-31&quot;&gt;3.1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#32&quot; id=&quot;markdown-toc-32&quot;&gt;3.2&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#321-existence&quot; id=&quot;markdown-toc-321-existence&quot;&gt;3.2.1 Existence&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#322-uniqueness&quot; id=&quot;markdown-toc-322-uniqueness&quot;&gt;3.2.2 Uniqueness&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#3221-simple-cases&quot; id=&quot;markdown-toc-3221-simple-cases&quot;&gt;3.2.2.1 Simple cases&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;h1 id=&quot;1-introduction&quot;&gt;1 Introduction&lt;/h1&gt;
 
 The problem comes from a stochastic PDE:
 
@@ -48,9 +51,9 @@ where $i=1,…,n$. We take a periodic boundary condition here, namely $X_t^0=X_t
 
 We want to figure out the invariant measure of this SDE system.
 
-&lt;h2 id=&quot;preliminary&quot;&gt;Preliminary&lt;/h2&gt;
+&lt;h1 id=&quot;2-preliminary&quot;&gt;2 Preliminary&lt;/h1&gt;
 
-&lt;h3 id=&quot;fokkerplanck-equation&quot;&gt;Fokker–Planck equation&lt;/h3&gt;
+&lt;h2 id=&quot;21-fokkerplanck-equation&quot;&gt;2.1 Fokker–Planck equation&lt;/h2&gt;
 
 The Fokker–Planck equation is a partial differential equation that describes the time evolution of the probability density function of the random variebles. For a general case, if
 
@@ -86,9 +89,9 @@ If our $\mu$ is a constant, the SDE would be an Ornstein–Uhlenbeck process, wh
 
 However, our $\mu$ is relevant with $t$, since $E{X_t^{(i)}}^2$ is a function of $t$. Thus it’s tricky to deal with it.
 
-&lt;h2 id=&quot;try-to-solve-it&quot;&gt;Try to solve it&lt;/h2&gt;
+&lt;h1 id=&quot;3-try-to-solve-it&quot;&gt;3 Try to solve it&lt;/h1&gt;
 
-&lt;h3 id=&quot;1&quot;&gt;1&lt;/h3&gt;
+&lt;h2 id=&quot;31&quot;&gt;3.1&lt;/h2&gt;
 
 We assume $X_t$ is stationary, then $E{X_t^{(i)}}^2$ is constant. Let the constant be $u_i$. Then we can regard $\mu$ as a constant. So the SDE becomes an Ornstein–Uhlenbeck process. We can obtain that its invariant measure should be a gaussian distribution $X_t\sim N(0,-\frac{1}{2}\mu^{-1}) $. For completeness, I give a proof as follows.
 
@@ -150,7 +153,7 @@ $X_t\sim N(e^{-tA}\mathbf{x^0}, \dfrac{1}{2}A^{-1}[I-e^{-2tA}])$
 
 And because $A$ is a positive definite matrix when $u_i&amp;gt;0$ (we won’t prove it here, since it’s tedious), when $t\to \infty$, $e^{-tA}\to \mathbf{0}$, $X_t \sim N(\mathbf{0}, \dfrac{1}{2}A^{-1})$ .
 
-&lt;h3 id=&quot;2&quot;&gt;2&lt;/h3&gt;
+&lt;h2 id=&quot;32&quot;&gt;3.2&lt;/h2&gt;
 
 We now know that when $X_t$ is stationary, its distribution would be $N(\mathbf{0}, \dfrac{1}{2}A^{-1})$,
 
@@ -179,7 +182,7 @@ u_n=\dfrac{1}{2}A^{-1}_{n,n}
 
 (Note that $\dfrac{1}{2}A^{-1}_{i,i}$ is the variance of the stationary $X_t^{(i)}$)
 
-&lt;h4 id=&quot;existence&quot;&gt;Existence&lt;/h4&gt;
+&lt;h3 id=&quot;321-existence&quot;&gt;3.2.1 Existence&lt;/h3&gt;
 
 Let $u:=u_1=u_2=\dots =u_n$, we are going to find a solution of the equations.
 
@@ -231,9 +234,23 @@ $f(u^{2})&amp;gt;0$ , when $u^{2}$ is large enough since $D_n$ is $O(u^{n-1})$ .
 
 Thus $f(u)$ has at least one root.
 
-&lt;h4 id=&quot;uniqueness&quot;&gt;Uniqueness&lt;/h4&gt;
+&lt;h3 id=&quot;322-uniqueness&quot;&gt;3.2.2 Uniqueness&lt;/h3&gt;
 
 We haven’t solved the uniqueness of the solution, but I can show you some ideas that may help us.
+
+&lt;h4 id=&quot;3221-simple-cases&quot;&gt;3.2.2.1 Simple cases&lt;/h4&gt;
+
+For the simple cases $n=2, 3$ , We can plot a figure of the equations by the computer and find that the equations have only one positive solution:
+
+$n=2$ :
+
+&lt;img src=&quot;/imgs/2d.png&quot; width=&quot;500&quot; alt=&quot;2d&quot; align=&quot;center&quot; /&gt;
+
+ 
+
+$n=3$ :
+
+&lt;img src=&quot;/imgs/3d.png&quot; width=&quot;600&quot; alt=&quot;2d&quot; align=&quot;center&quot; /&gt;
 
 </description>
         <pubDate>Thu, 30 Jul 2020 00:00:00 +0800</pubDate>

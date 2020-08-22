@@ -1,21 +1,24 @@
-I"*&<ul id="markdown-toc">
-  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
-  <li><a href="#preliminary" id="markdown-toc-preliminary">Preliminary</a>    <ul>
-      <li><a href="#fokkerplanck-equation" id="markdown-toc-fokkerplanck-equation">Fokker–Planck equation</a></li>
+I"�(<ul id="markdown-toc">
+  <li><a href="#1-introduction" id="markdown-toc-1-introduction">1 Introduction</a></li>
+  <li><a href="#2-preliminary" id="markdown-toc-2-preliminary">2 Preliminary</a>    <ul>
+      <li><a href="#21-fokkerplanck-equation" id="markdown-toc-21-fokkerplanck-equation">2.1 Fokker–Planck equation</a></li>
     </ul>
   </li>
-  <li><a href="#try-to-solve-it" id="markdown-toc-try-to-solve-it">Try to solve it</a>    <ul>
-      <li><a href="#1" id="markdown-toc-1">1</a></li>
-      <li><a href="#2" id="markdown-toc-2">2</a>        <ul>
-          <li><a href="#existence" id="markdown-toc-existence">Existence</a></li>
-          <li><a href="#uniqueness" id="markdown-toc-uniqueness">Uniqueness</a></li>
+  <li><a href="#3-try-to-solve-it" id="markdown-toc-3-try-to-solve-it">3 Try to solve it</a>    <ul>
+      <li><a href="#31" id="markdown-toc-31">3.1</a></li>
+      <li><a href="#32" id="markdown-toc-32">3.2</a>        <ul>
+          <li><a href="#321-existence" id="markdown-toc-321-existence">3.2.1 Existence</a></li>
+          <li><a href="#322-uniqueness" id="markdown-toc-322-uniqueness">3.2.2 Uniqueness</a>            <ul>
+              <li><a href="#3221-simple-cases" id="markdown-toc-3221-simple-cases">3.2.2.1 Simple cases</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
     </ul>
   </li>
 </ul>
 
-<h2 id="introduction">Introduction</h2>
+<h1 id="1-introduction">1 Introduction</h1>
 
 <p>The problem comes from a stochastic PDE:</p>
 
@@ -35,9 +38,9 @@
 
 <p>We want to figure out the invariant measure of this SDE system.</p>
 
-<h2 id="preliminary">Preliminary</h2>
+<h1 id="2-preliminary">2 Preliminary</h1>
 
-<h3 id="fokkerplanck-equation">Fokker–Planck equation</h3>
+<h2 id="21-fokkerplanck-equation">2.1 Fokker–Planck equation</h2>
 
 <p>The Fokker–Planck equation is a partial differential equation that describes the time evolution of the probability density function of the random variebles. For a general case, if</p>
 
@@ -73,9 +76,9 @@ $\begin{pmatrix}
 
 <p>However, our $\mu$ is relevant with $t$, since $E{X_t^{(i)}}^2$ is a function of $t$. Thus it’s tricky to deal with it.</p>
 
-<h2 id="try-to-solve-it">Try to solve it</h2>
+<h1 id="3-try-to-solve-it">3 Try to solve it</h1>
 
-<h3 id="1">1</h3>
+<h2 id="31">3.1</h2>
 
 <p>We assume $X_t$ is stationary, then $E{X_t^{(i)}}^2$ is constant. Let the constant be $u_i$. Then we can regard $\mu$ as a constant. So the SDE becomes an Ornstein–Uhlenbeck process. We can obtain that its invariant measure should be a gaussian distribution $X_t\sim N(0,-\frac{1}{2}\mu^{-1}) $. For completeness, I give a proof as follows.</p>
 
@@ -137,7 +140,7 @@ $\begin{pmatrix}
 
 <p>And because $A$ is a positive definite matrix when $u_i&gt;0$ (we won’t prove it here, since it’s tedious), when $t\to \infty$, $e^{-tA}\to \mathbf{0}$, $X_t \sim N(\mathbf{0}, \dfrac{1}{2}A^{-1})$ .</p>
 
-<h3 id="2">2</h3>
+<h2 id="32">3.2</h2>
 
 <p>We now know that when $X_t$ is stationary, its distribution would be $N(\mathbf{0}, \dfrac{1}{2}A^{-1})$,</p>
 
@@ -166,7 +169,7 @@ u_n=\dfrac{1}{2}A^{-1}_{n,n}
 
 <p>(Note that $\dfrac{1}{2}A^{-1}_{i,i}$ is the variance of the stationary $X_t^{(i)}$)</p>
 
-<h4 id="existence">Existence</h4>
+<h3 id="321-existence">3.2.1 Existence</h3>
 
 <p>Let $u:=u_1=u_2=\dots =u_n$, we are going to find a solution of the equations.</p>
 
@@ -201,7 +204,8 @@ $\begin{vmatrix}
 
 <p>We see when $u_1=u_2=\dots =u_n=u$ ,</p>
 
-<p>$A^{-1}<em>{i,i}=\dfrac{D</em>{n-1}}{C_n}$ ,</p>
+<p>$A_{i,i}^{-1}=\dfrac{D_{n-1}}{C_n}$ ,
+since $A^{-1}=\dfrac{A^*}{\mid A\mid}$ .</p>
 
 <p>So the equations become: $u=\dfrac{D_{n-1}}{2C_n}$ .</p>
 
@@ -217,8 +221,22 @@ $\begin{vmatrix}
 
 <p>Thus $f(u)$ has at least one root.</p>
 
-<h4 id="uniqueness">Uniqueness</h4>
+<h3 id="322-uniqueness">3.2.2 Uniqueness</h3>
 
 <p>We haven’t solved the uniqueness of the solution, but I can show you some ideas that may help us.</p>
+
+<h4 id="3221-simple-cases">3.2.2.1 Simple cases</h4>
+
+<p>For the simple cases $n=2, 3$ , We can plot a figure of the equations by the computer and find that the equations have only one positive solution:</p>
+
+<p>$n=2$ :</p>
+
+<p><img src="/imgs/2d.png" width="500" alt="2d" align="center" /></p>
+
+<p> </p>
+
+<p>$n=3$ :</p>
+
+<p><img src="/imgs/3d.png" width="500" alt="2d" align="center" /></p>
 
 :ET

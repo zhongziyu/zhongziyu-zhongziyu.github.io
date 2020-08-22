@@ -9,7 +9,7 @@ author: Ziyu Zhong
 * content
 {:toc}
 
-## Introduction
+# 1 Introduction
 
 The problem comes from a stochastic PDE:
 
@@ -30,9 +30,9 @@ where $i=1,...,n$. We take a periodic boundary condition here, namely $X_t^0=X_t
 We want to figure out the invariant measure of this SDE system.
 
 
-## Preliminary
+# 2 Preliminary
 
-### Fokker–Planck equation
+## 2.1 Fokker–Planck equation
 
 The Fokker–Planck equation is a partial differential equation that describes the time evolution of the probability density function of the random variebles. For a general case, if
 
@@ -68,9 +68,9 @@ If our $\mu$ is a constant, the SDE would be an Ornstein–Uhlenbeck process, wh
 
 However, our $\mu$ is relevant with $t$, since $E{X_t^{(i)}}^2$ is a function of $t$. Thus it's tricky to deal with it.
 
-## Try to solve it
+# 3 Try to solve it
 
-### 1
+## 3.1
 
 We assume $X_t$ is stationary, then $E{X_t^{(i)}}^2$ is constant. Let the constant be $u_i$. Then we can regard $\mu$ as a constant. So the SDE becomes an Ornstein–Uhlenbeck process. We can obtain that its invariant measure should be a gaussian distribution $X_t\sim N(0,-\frac{1}{2}\mu^{-1}) $. For completeness, I give a proof as follows.
 
@@ -132,7 +132,7 @@ $X_t\sim N(e^{-tA}\mathbf{x^0}, \dfrac{1}{2}A^{-1}[I-e^{-2tA}])$
 
 And because $A$ is a positive definite matrix when $u_i>0$ (we won't prove it here, since it's tedious), when $t\to \infty$, $e^{-tA}\to \mathbf{0}$, $X_t \sim N(\mathbf{0}, \dfrac{1}{2}A^{-1})$ .
 
-### 2
+## 3.2
 
 We now know that when $X_t$ is stationary, its distribution would be $N(\mathbf{0}, \dfrac{1}{2}A^{-1})$, 
 
@@ -161,7 +161,7 @@ u_n=\dfrac{1}{2}A^{-1}_{n,n}
 
 (Note that $\dfrac{1}{2}A^{-1}_{i,i}$ is the variance of the stationary $X_t^{(i)}$)
 
-#### Existence
+### 3.2.1 Existence
 
 Let $u:=u_1=u_2=\dots =u_n$, we are going to find a solution of the equations.
 
@@ -214,8 +214,22 @@ $f(u^{2})>0$ , when $u^{2}$ is large enough since $D_n$ is $O(u^{n-1})$ .
 Thus $f(u)$ has at least one root.
 
 
-#### Uniqueness
+### 3.2.2 Uniqueness
 
 We haven't solved the uniqueness of the solution, but I can show you some ideas that may help us.
+
+####  3.2.2.1 Simple cases
+
+For the simple cases $n=2, 3$ , We can plot a figure of the equations by the computer and find that the equations have only one positive solution:
+
+$n=2$ :
+
+<img src="/imgs/2d.png" width = "500"  alt="2d" align=center />
+
+&nbsp;
+
+$n=3$ :
+
+<img src="/imgs/3d.png" width = "600"  alt="2d" align=center />
 
 
