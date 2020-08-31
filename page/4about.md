@@ -34,9 +34,6 @@ type: page
 
 ---
 
-### Latest news
-1. xxx
-
 ### Academic experience
 
 #### Nanjing university, China（2017.9~）
@@ -44,16 +41,6 @@ type: page
 
 #### University of Wisconsin-Madison, U.S. (2020.1~2020.7)
 - visiting student
-
-### Research experience
-- xxx
-- xxx
-
-### Honors&Rewards
-- xxx
-- xxx
-- xxx
-
 
 
 
@@ -63,7 +50,6 @@ type: page
 * email：83608368@qq.com
 * weixin : Barbaralalia
 * QQ : 83608368
-* [知乎](https://www.zhihu.com/people/ddf6d5d5dea2defa6d954903ff0bcb91)
 
 
 
